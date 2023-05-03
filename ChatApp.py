@@ -42,12 +42,11 @@ def on_message(client, userdata, msg):
     response = openai.Completion.create(
         model=OPENAI_MODEL,
         prompt=generate_prompt(msg.payload),
-        temperature=0.7,
-        max_tokens=1215,
+        temperature=0.5,
+        max_tokens=1500,
         top_p=1,
         frequency_penalty=0,
-        presence_penalty=0,
-        best_of=1
+        presence_penalty=0
     )
     # Extract response text from JSON response
     response_text = response.choices[0].text
